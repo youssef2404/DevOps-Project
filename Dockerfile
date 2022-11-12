@@ -1,7 +1,6 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8089
-FROM alpine/curl
-ADD http://192.168.1.16:8081/repository/maven-releases/tn/esprit/rh/achat/1.0/achat-1.0.jar achat-1.0.jar
-ENTRYPOINT ["java","-jar","/achat-1.0.jar"]
-CMD mvn spring-boot:run
+FROM maven:3.8.2-jdk-8
+WORKDIR /spring-app
+COPY . .
+RUN mvn clean install -Dmaven.test.skip=true
+CMD mvn  spring-boot:run
 
