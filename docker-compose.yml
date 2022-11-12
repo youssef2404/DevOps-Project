@@ -12,7 +12,7 @@ services:
   volumes:
     - /home/mysql/data:/var/lib/mysql
  spring_app:
-  image: eya25/achat-1.0
+  image: eya25/achat
   container_name: achat
   restart: on-failure
   ports:
