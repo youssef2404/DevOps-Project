@@ -47,7 +47,7 @@ pipeline{
         }
 	 stage ('Deploiement Nexux'){
 			steps{
-				sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=2.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.16:8081/repository/maven-releases -Dfile=target/tpAchatProject-1.0.jar"
+				sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=3.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.16:8081/repository/maven-releases -Dfile=target/tpAchatProject-1.0.jar"
 			}
 		}
         
