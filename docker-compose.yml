@@ -3,7 +3,6 @@ version: "3.7"
 services:
 
   app:
-    working_dir: /spring-app
     image: eya25/achat
     restart: on-failure
     container_name: achat
