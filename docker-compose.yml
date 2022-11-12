@@ -4,9 +4,6 @@ services:
 
   app:
     working_dir: /spring-app
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: eya25/achat
     restart: on-failure
     container_name: achat
