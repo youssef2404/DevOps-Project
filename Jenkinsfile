@@ -1,31 +1,61 @@
-pipeline {
- 
- agent any
- stages {
- stage('Cloning Project from Git') {
- steps { 
-sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
- }
- }
-stage("Build") {
- steps {
- sh "mvn compile"
-}}
-stage("Unit tests") {
- steps {
- sh "mvn test"
-}}
-stage("sonar") {
- steps {
- sh "mvn sonar:sonar"
-}}
-stage ("clean et packaging"){
- steps {
- bat "mvn clean install "
- }}
 
 
+pipeline{
 
+	agent any
+
+	/*environment {
+        dockerhub=credentials('dockerhub')
+	}
+       */
+	stages {
+	    
+        stage ('Git Chekout') {
+            steps {
+                
+                //git 'https://github.com/mhassini/timesheet-devops.git'
+                git branch: 'main', 
+                url: 'https://github.com/youssef2404/DevOps-Project.git'
+                sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
+            }  
+        }
+        stage ('Maven Build') {
+            steps {
+                
+                 sh 'mvn clean install'
+            }
+		        
+        }
+        stage ('Maven Compile') {
+            steps {
+                
+                 sh 'mvn compile -e'
+		        
+            }
+        }
+        stage ('TEST Unitaire') {
+            steps {
+                
+                 sh 'mvn clean test'
+		        
+            }
+        }
+        
+        stage ('TEST Integration') {
+            steps {
+                
+                 sh 'mvn verify -DskipUnitTests'
+		        
+            }
+        }
+        
+        stage ('Maven SonarQube') {
+            steps {
+                
+                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+		        
+            }
+        }
+        
+	}  
 }
-}
-
