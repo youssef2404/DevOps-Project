@@ -1,9 +1,5 @@
 pipeline {
- /*environment {
- registry = "YourDockerhubAccount/YourRepository"
- registryCredential = 'Yourdockerhub_id'
- dockerImage = ''
- }*/
+ 
  agent any
  stages {
  stage('Cloning Project from Git') {
@@ -27,5 +23,10 @@ stage (“clean et packaging”)
 {
  steps {
  bat "mvn clean install "
-}}
+ }}
+
+
+
+}
+}
 
