@@ -2,20 +2,11 @@
 
 pipeline{
 
-	agent any
-
-	/*environment {
-        dockerhub=credentials('dockerhub')
-	}
-       */
 	stages {
 	    
         stage ('Git Chekout') {
             steps {
                 
-                //git 'https://github.com/mhassini/timesheet-devops.git'
-                git branch: 'main', 
-                url: 'https://github.com/youssef2404/DevOps-Project.git'
                 sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
             }  
         }
