@@ -13,7 +13,7 @@ services:
   ports:
     - "3306:3306"
   volumes:
-    - db: /home/mysql/data:/var/lib/mysql
+    - db:/home/mysql/data:/var/lib/mysql
  spring_app:
   image: eya25/achat
   container_name: achat
@@ -29,7 +29,7 @@ services:
             "spring.jpa.hibernate.ddl-auto" : "update"
           }'
   volumes:
-    - m2: /home/mysql/data:/var/lib/application
+    - m2:/home/mysql/data:/var/lib/application
   depends_on:
     - mysqldb
   networks:
