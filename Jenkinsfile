@@ -3,8 +3,8 @@ pipeline {
  agent any
  stages {
  stage('Cloning Project from Git') {
- steps { git CLONE
-'https://github.com/youssef2404/DevOps-Project.git'
+ steps { 
+sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
  }
  }
 stage("Build") {
