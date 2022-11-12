@@ -32,7 +32,6 @@ public class SecteurActivite implements Serializable{
 	@JsonIgnore
 	private Set<Fournisseur> fournisseurs;
 	public SecteurActivite(String codeSecteurActivite, String libelleSecteurActivite) {
-		super();
 		this.codeSecteurActivite = codeSecteurActivite;
 		this.libelleSecteurActivite = libelleSecteurActivite;
 	}
