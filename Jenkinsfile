@@ -2,9 +2,10 @@ pipeline{
   agent any 
 	stages {
 	    
-        stage ('cloning project from git') {
-            steps { 
-                sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
+       stage ('Git Chekout') {
+            steps {                
+                git branch: 'main', 
+                url: 'https://github.com/youssef2404/DevOps-Project.git'   
             }  
         }
         stage ('Maven Build') {
