@@ -3,8 +3,7 @@ pipeline{
 	stages {
 	    
         stage ('cloning project from git') {
-            steps {
-                
+            steps { 
                 sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
             }  
         }
