@@ -23,7 +23,7 @@ stage("sonar") {
  steps {
  sh "mvn sonar:sonar"
 }}
-Stage (“clean et packaging”)
+stage (“clean et packaging”)
 {
  steps {
  bat "mvn clean install "
