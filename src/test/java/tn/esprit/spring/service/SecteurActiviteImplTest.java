@@ -1,52 +1,83 @@
 package tn.esprit.spring.service;
 
-import static org.junit.Assert.assertEquals;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.esprit.examen.entities.SecteurActivite;
+import com.esprit.examen.repositories.SecteurActiviteRepository;
+import com.esprit.examen.services.ISecteurActiviteService;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-
-import com.esprit.examen.entities.SecteurActivite;
-import com.esprit.examen.services.ISecteurActiviteService;
-
+@RunWith(SpringRunner.class)
 @SpringBootTest
- public class SecteurActiviteImplTest {
+public class SecteurActiviteImplTest {
+	
+	
+	private static final long DEFAULT_TIMEOUT = 10000;
+	private static final Logger l = LogManager.getLogger(SecteurActiviteImplTest.class);
+
+	
+	
 	
 	@Autowired
-	ISecteurActiviteService secteur;
+	SecteurActiviteRepository secteurActiviteRepository ;
+	
+	@Autowired
+	ISecteurActiviteService iSecteurActiviteService ;
+	
+	
+	
+	//Add Mission Test 
+		@Test(timeout = DEFAULT_TIMEOUT)
+		public void testaddSecteurActivite() {
+			SecteurActivite secteurActivite = new SecteurActivite("secteurActiviteTest","secteurActiviteTest");
+			iSecteurActiviteService.addSecteurActivite(secteurActivite);
+		assertNotNull(secteurActivite.getIdSecteurActivite());
+		l.info("Mission added successfuly ");
+		secteurActiviteRepository.deleteById(secteurActivite.getIdSecteurActivite());
+		}
+		
+		
+		
+		//Count missions a make sure the return is  not null
+		@Test
+		public void testcountSecteurActivite() {
+		long nbrms = secteurActiviteRepository.count();
+		assertNotNull(nbrms);
+		l.info("Le Nombre des secteurActivite est :");
+		l.info(nbrms);
+		}
+		
+		
+		
+		// Make sure the Database is not Nulls
+		@Test
+		public void testListMission() {
+		List<SecteurActivite> e = (List<SecteurActivite>) secteurActiviteRepository.findAll();
+		assertThat(e).size().isPositive();
+		l.info( "> 0");
+		}
+		
+		
+		
+		
+		//delete a mission (id=2).
+		
+				@Test
+				public void deleteMission() {
+					long id = 2;
+					iSecteurActiviteService.deleteSecteurActivite(id);
+				}
+				
 
-	@Test
-	 public void testretrieveAllSecteurActivite() {
-		List<SecteurActivite> listSecteurs = secteur.retrieveAllSecteurActivite();
-		Assertions.assertEquals(0, listSecteurs.size());
-	}
-    @Test
-    void testaddSecteurActivite() {
-    	SecteurActivite secteur1 = new SecteurActivite();
-    	secteur1.setLibelleSecteurActivite("secteur test");
-    	secteur1.setCodeSecteurActivite("10");
-    	SecteurActivite savedSecteur= secteur.addSecteurActivite(secteur1);
-        assertEquals(secteur1.getLibelleSecteurActivite(), savedSecteur.getLibelleSecteurActivite());
-    }
-    @Test
-    void testdeleteSecteurActivite() {
-    	secteur.deleteSecteurActivite(0L);
-    }
-    @Test
-    void testupdateSecteurActivite() {
-    	SecteurActivite s1= secteur.retrieveSecteurActivite(0L);
-        s1.setCodeSecteurActivite("100");
-        SecteurActivite updatedSecteur= secteur.updateSecteurActivite(s1);
-        assertEquals(s1.getCodeSecteurActivite(), updatedSecteur.getCodeSecteurActivite());
-    }
-    @Test
-    void testretrieveSecteurActivite() {
-    	secteur.retrieveSecteurActivite(0L);
-    }
-   
+	
 }
