@@ -2,7 +2,7 @@ pipeline{
   agent any 
 	stages {
 	    
-        stage ('Git Chekout') {
+        stage ('cloning project from git') {
             steps {
                 
                 sh "git clone 'https://github.com/youssef2404/DevOps-Project.git'"
