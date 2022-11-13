@@ -67,12 +67,13 @@ pipeline{
              steps {
 				sh 'docker push Youssef-DevOps-Project'
 			}
-     	}
-	post {
+	    post {
 		always {
 			sh 'docker logout'
 		}
         	}
+     	}
+	
 	
         
 	}  
