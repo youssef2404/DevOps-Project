@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8089
-ADD target/tpAchatProject.jar tpAchatProject.jar
-ENTRYPOINT ["java","-jar","/tpAchatProject.jar"]
+ADD target/tpAchatProject-1.0.jar tpAchatProject-1.0.jar
+ENTRYPOINT ["java","-jar","/tpAchatProject-1.0.jar"]
