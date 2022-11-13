@@ -3,9 +3,6 @@ version: "3.7"
 services:
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: youssef2404/youssef
     restart: on-failure
     container_name: achat
@@ -27,7 +24,6 @@ services:
       - .m2:/root/maven-repo
     stdin_open: true
     tty: true
-
 
   dbSpring:
     image: mysql:5.7
