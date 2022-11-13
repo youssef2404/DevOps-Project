@@ -43,7 +43,7 @@ pipeline{
             }
         }
 		
-	stage ('Creation du livrable...'){
+	stage ('Packaging'){
 			steps{
 				sh "mvn package -Dmaven.test.skip=true"
 			}
@@ -89,9 +89,13 @@ pipeline{
                 sh 'docker compose build'
                 sh 'docker compose up -d'
             }
+		post {
+        always {
+            sh 'emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test''
+        }
+    }
         }
 	
 	
-        
 	}  
 }
