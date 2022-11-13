@@ -55,21 +55,21 @@ pipeline{
 		
 	 stage("Building image") {
             steps {
-                sh 'docker build -t youssef-devops-project .'
+                sh 'sudo docker build -t youssef-devops-project .'
             }
         }
          stage('Docker Login') {
             steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="youssef2404" -p="Youssef92183494" '
+				sh 'sudo echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="youssef2404" -p="Youssef92183494" '
 			}
 		} 
 	 stage('Push DockerHub') {
              steps {
-				sh 'docker push Youssef-DevOps-Project'
+				sh 'sudo docker push Youssef-DevOps-Project'
 			}
 	    post {
 		always {
-			sh 'docker logout'
+			sh 'sudo docker logout'
 		}
         	}
      	}
