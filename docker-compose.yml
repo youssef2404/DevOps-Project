@@ -13,13 +13,10 @@ services:
     ports:
       - 8089:8089
     
-
   dbSpring:
     image: mysql:5.7
     restart: unless-stopped
     container_name: dbSpring
-    networks:
-      - spring-network
     environment:
       - MYSQL_ROOT_PASSWORD=""
       - MYSQL_DATABASE=achatdb
