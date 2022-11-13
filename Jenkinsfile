@@ -19,7 +19,7 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-        /*stage('MVN SONARQUBE'){
+        stage('MVN SONARQUBE'){
             steps{
                 sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.16:9000 -Dsonar.login=admin -Dsonar.password=sonar'
             }
@@ -43,26 +43,25 @@ pipeline {
         }
         stage('Docker Login') {
             steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="eya25" -p="Eyaayouta123!!!" '
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="eya25" -p="Eyaayouta123!!!" '
 			}
 		} 
 	    stage('Push') {
             steps {
-				sh 'docker push eya25/achat'
+		sh 'docker push eya25/achat'
 			}
-     	}*/
-     	
-     	stage('deploy docker-compose'){
+     	}
+     	/*stage('deploy docker-compose'){
             steps{
                 script{
-                    sh 'docker-compose up -d'
+                sh 'docker-compose up -d'
                 }
             }
-	    }
+        }*/
     }
-   /* post {
-		always {
-			sh 'docker logout'
-		}
-        	}*/
+    post {
+	always {
+	     sh 'docker logout'
+	       }
+         }
 }
