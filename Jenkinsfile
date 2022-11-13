@@ -9,5 +9,20 @@ credentialsId: 'c9f553ba-99cd-4cc6-b9b3-75aa29e75a35',
 url: 'https://github.com/youssef2404/DevOps-Project.git'
             }
         }
-    }
+     stage('Unit Testing') {
+            steps {
+               sh 'mvn test'
+            }
+        }
+
+stage('Integration testing') {
+            steps {
+               sh 'mvn verify -DskipUnitTests'
+            }
+        }
+
+
+
+}
+
 }
