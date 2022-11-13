@@ -74,11 +74,11 @@ pipeline{
              steps {
 		    sh 'docker push youssef2404/youssef'
 			}
-	    /*post {
+	    post {
 		always {
 			sh 'docker logout'
 		}
-        	}*/
+        	}
      	}
 	stage('Docker compose') {
             steps {
