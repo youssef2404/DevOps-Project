@@ -53,9 +53,11 @@ pipeline{
 			}
 		}
 		
-	 stage("Building image") {
-            steps {
-                sh 'sudo docker build -t youssef-devops-project .'
+	 stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t youssef/tpachatproject .'
+                }
             }
         }
          stage('Docker Login') {
