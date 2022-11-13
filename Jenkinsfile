@@ -62,16 +62,16 @@ pipeline{
         }
          stage('Docker Login') {
             steps {
-				sh 'sudo echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="youssef2404" -p="Youssef92183494" '
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="youssef2404" -p="Youssef92183494" '
 			}
 		} 
 	 stage('Push DockerHub') {
              steps {
-				sh 'sudo docker push Youssef-DevOps-Project'
+				sh 'docker push Youssef-DevOps-Project'
 			}
 	    post {
 		always {
-			sh 'sudo docker logout'
+			sh 'docker logout'
 		}
         	}
      	}
