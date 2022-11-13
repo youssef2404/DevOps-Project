@@ -1,10 +1,9 @@
 pipeline{
-	pipeline {
+
 
     environment {
        PATH = "$PATH:/usr/local/bin"
     }
-}
 	
 	
   agent any 
