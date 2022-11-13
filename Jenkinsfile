@@ -42,6 +42,12 @@ pipeline{
 		        
             }
         }
+		
+	stage ('Creation du livrable...'){
+			steps{
+				sh "mvn package -Dmaven.test.skip=true"
+			}
+		}
         
         stage ('Maven SonarQube') {
             steps {
