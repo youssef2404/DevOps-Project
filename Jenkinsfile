@@ -85,14 +85,17 @@ pipeline{
                 sh 'docker compose build'
                 sh 'docker compose up -d'
             }	
-	post{
-        always{
-            emailext to: "tbyouss@gmail.com",
-            subject: "Test Email",
-            body: "Test" 
+	stage('Send Email') {
+            steps {
+	  script {                  
+                   def jobName = currentBuild.fullDisplayName               
+                   emailext body: '''Hello''',
+                       mimeTye: 'text/html',
+                       subject: "[Jenkins] Started ${jobName}",
+                       to: "youssef.tabarki@esprit.tn",                  
+                       recipientProviders: [[$class: 'CulpritsRecipientProvider']]
         }
-    }
-        }
+	    }}
 		
 	
 	}  
