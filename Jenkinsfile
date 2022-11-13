@@ -50,7 +50,7 @@ pipeline {
 		sh 'docker push eya26/achat'
 			}
      	}
-     	stage('deploy docker-compose'){
+     	stage('Docker-compose'){
             steps{
                 script{
                 sh 'docker-compose up -d'
