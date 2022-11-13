@@ -56,7 +56,7 @@ pipeline{
 	 stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t youssef/tpachatproject .'
+                    sh 'docker build -t tpachatproject .'
                 }
             }
         }
@@ -67,7 +67,7 @@ pipeline{
 		} 
 	 stage('Push DockerHub') {
              steps {
-		    sh 'docker push youssef2404/youssef:youssef/tpachatproject'
+		    sh 'docker push youssef2404/youssef:tpachatproject'
 			}
 	    post {
 		always {
