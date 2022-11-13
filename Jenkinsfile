@@ -55,7 +55,7 @@ pipeline{
 		
 	 stage("Building image") {
             steps {
-                sh 'docker build -t Youssef-DevOps-Project .'
+                sh 'docker build -t youssef-devops-project .'
             }
         }
          stage('Docker Login') {
