@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: eya25/achat
+    image: eya26/achat
     restart: on-failure
     container_name: achat
     depends_on:
