@@ -4,7 +4,6 @@ services:
 
   app:
     build: .
-    dockerfile: Dockerfile
     image: youssef2404/youssef
     restart: on-failure
     container_name: achat
