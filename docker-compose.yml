@@ -23,5 +23,5 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - achatdb:/var/lib/mysql
+      - /home/mysql/data:/var/lib/mysql
 
