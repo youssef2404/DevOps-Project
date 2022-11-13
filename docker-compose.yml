@@ -1,14 +1,19 @@
 version: "3.8"
 
 services:
-  mysqldb:
+ dbSpring:
     image: mysql:5.7
     restart: unless-stopped
+    container_name: dbSpring
+    networks:
+      - spring-network
     environment:
-      - MYSQL_ROOT_PASSWORD=""
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=achatdb
     ports:
       - 3306:3306
+    volumes:
+      - achatdb:/var/lib/mysql
    
   app:
     depends_on:
