@@ -85,17 +85,7 @@ pipeline{
                 sh 'docker compose build'
                 sh 'docker compose up -d'
 	    }	}
-	stage('Send Email') {
-            steps {
-	  script {                  
-                   def jobName = currentBuild.fullDisplayName               
-                   emailext body: '''Hello''',
-                       mimeTye: 'text/html',
-                       subject: "[Jenkins] Started ${jobName}",
-                       to: "youssef.tabarki@esprit.tn",                  
-                       recipientProviders: [[$class: 'CulpritsRecipientProvider']]
-        }
-	    }}
+	
 		
 	
 	}  
