@@ -85,12 +85,11 @@ pipeline{
                 sh 'docker compose build'
                 sh 'docker compose up -d'
             }	
-		 post{
+	post{
         always{
-            emailext to: "youssef.tabarki@esprit.tn",
+          sh '  emailext to: "youssef.tabarki@esprit.tn",
             subject: "Test Email",
-            body: "Test",
-            attachLog: true
+            body: "Test" '
         }
     }
         }
