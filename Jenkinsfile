@@ -87,9 +87,9 @@ pipeline{
             }	
 	post{
         always{
-          sh '  emailext to: "youssef.tabarki@esprit.tn",
+            emailext to: "tbyouss@gmail.com",
             subject: "Test Email",
-            body: "Test" '
+            body: "Test" 
         }
     }
         }
