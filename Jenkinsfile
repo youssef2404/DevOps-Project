@@ -39,11 +39,11 @@ pipeline{
             }
         }
 		
-	/*stage ('Packaging'){
+	stage ('Packaging'){
 			steps{
 				sh "mvn package -Dmaven.test.skip=true"
 			}
-		}*/
+		}
         
         stage ('Maven SonarQube') {
             steps {
