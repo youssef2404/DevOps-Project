@@ -19,7 +19,7 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-        /*stage('MVN SONARQUBE'){
+        stage('MVN SONARQUBE'){
             steps{
                 sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.16:9000 -Dsonar.login=admin -Dsonar.password=sonar'
             }
@@ -34,8 +34,7 @@ pipeline {
             steps{
                 sh 'mvn deploy'
             }
-        }*/
-        
+        }
        	stage("Building image") {
             steps {
                 sh 'docker build -t eya26/achat .'
@@ -51,13 +50,13 @@ pipeline {
 		sh 'docker push eya26/achat'
 			}
      	}
-     	/*stage('deploy docker-compose'){
+     	stage('deploy docker-compose'){
             steps{
                 script{
                 sh 'docker-compose up -d'
                 }
             }
-        }*/
+        }
     }
     post {
 	always {
