@@ -84,7 +84,7 @@ pipeline{
             steps {
                 sh 'docker compose build'
                 sh 'docker compose up -d'
-            }	
+	    }	}
 	stage('Send Email') {
             steps {
 	  script {                  
