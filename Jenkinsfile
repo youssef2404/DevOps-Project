@@ -15,11 +15,6 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
             }
         }
 
-stage('Integration testing') {
-            steps {
-               sh 'mvn verify -DskipUnitTests'
-            }
-        }
 
 
 
