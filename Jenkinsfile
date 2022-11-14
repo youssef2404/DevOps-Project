@@ -44,35 +44,6 @@ stage ('Packaging'){
             }
         }
 
-	 stage('Build docker image'){
-            steps{
-                script{
-                    sh 'docker build -t youssef2404/youssef .'
-                }
-            }
-        }
-         stage('Docker Login') {
-            steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="youssef2404" -p="Youssef92183494" '
-			}
-		} 
-	 stage('Push DockerHub') {
-             steps {
-		    sh 'docker push youssef2404/youssef'
-			}
-	    post {
-		always {
-			sh 'docker logout'
-		}
-        	}
-     	}*/
-	stage('Docker compose') {
-            steps {
-                sh 'docker compose build'
-                sh 'docker compose up -d'
-	    }	}
-	
-		
 	
 	}  
 }
