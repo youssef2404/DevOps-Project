@@ -38,13 +38,12 @@ stage ('Packaging'){
                 sh 'mvn test'
             }
         }
-       
- stage ('Deploiement Nexux'){
-			steps{
-				sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://192.168.1.41:8081/repository/maven-releases -Dfile=target/tpAchatProject-1.0.jar"
-			}
-		}
-		
+        stage('Nexus'){
+            steps{
+                sh 'mvn deploy'
+            }
+        }
+
 	 stage('Build docker image'){
             steps{
                 script{
