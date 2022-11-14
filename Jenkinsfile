@@ -37,17 +37,17 @@ pipeline {
         }
        	stage("Building image") {
             steps {
-                sh 'docker build -t eya26/achat .'
+                sh 'docker build -t eya28/achat .'
             }
         }
         stage('Docker Login') {
             steps {
-		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="eya26" -p="eyaayouta123" '
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="eya28" -p="systemsystem123" '
 			}
 		} 
 	    stage('Push') {
             steps {
-		sh 'docker push eya26/achat'
+		sh 'docker push eya28/achat'
 			}
      	}
      	stage('Docker-compose'){
