@@ -18,9 +18,9 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
 
 stage(‘Code Quality’) {
 steps {
-echo ‘Code Quality’
-withSonarQubeEnv(‘SonarQubeToken’) {
-bat “mvn sonar:sonar”
+
+withSonarQubeEnv(credentialsId:‘sonar-api ’) {
+bat “mvn clean package sonar:sonar”
 }
 }
 }
