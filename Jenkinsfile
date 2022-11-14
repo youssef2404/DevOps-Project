@@ -3,7 +3,7 @@ pipeline{
   agent any 
 	stages {
 	    
-       stage ('Git Chekout') {
+    /*   stage ('Git Chekout') {
             steps {                
                 git branch: 'main', 
                 url: 'https://github.com/youssef2404/DevOps-Project.git'   
@@ -78,7 +78,7 @@ pipeline{
 		always {
 			sh 'docker logout'
 		}
-        	}
+        	}*/
      	}
 	stage('Docker compose') {
             steps {
