@@ -89,7 +89,7 @@
                 <execution>
                     <id>repackage</id>
                     
-                    <!-- <phase>generate-test-sources</phase> -->
+                    
                     <goals>
                         <goal>repackage</goal>
                     </goals>
