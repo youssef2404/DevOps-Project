@@ -57,7 +57,20 @@ stage('Docker Login') {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u="onstrabelsi" -p="ons" '
 			}
 		} 
-	
+	 stage('Push DockerHub') {
+             steps {
+		    sh 'docker push onstrabelsi/ons'
+			}
+	    post {
+		always {
+			sh 'docker logout'
+		}
+        	}
+     	stage('Docker compose') {
+            steps {
+                sh 'docker compose build'
+                sh 'docker compose up -d'
+	    }	}
 	
 
 
