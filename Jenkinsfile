@@ -14,9 +14,11 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
                 sh 'mvn clean'
             }
         }
-        stage('MVN COMPILE'){
-            steps{
-                sh 'mvn compile'
+         stage ('Maven Compile') {
+            steps {
+                
+                 sh 'mvn compile -e'
+		        
             }
         }
 
