@@ -22,6 +22,23 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
             }
         }
 
+   stage('MVN SONARQUBE'){
+            steps{
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.40:9000 -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
+        stage('JUNIT-MOCKITO'){
+            steps{
+                echo'laching units test ...'
+                sh 'mvn test'
+            }
+        }
+        stage('Nexus'){
+            steps{
+                sh 'mvn deploy'
+            }
+        }
+
 }
 
 }
