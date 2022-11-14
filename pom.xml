@@ -147,6 +147,7 @@
 		</plugins>
 		<finalName>devopsproject</finalName>
 	</build>
+	
 	<distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
