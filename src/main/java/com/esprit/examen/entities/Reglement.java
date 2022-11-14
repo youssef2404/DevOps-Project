@@ -34,20 +34,5 @@ public class Reglement implements Serializable{
 	@ManyToOne
 	@JsonIgnore
 	private Facture facture;
-	public Reglement(Long idReglement, float montantPaye, float montantRestant, Boolean payee, Date dateReglement) {
-		super();
-		this.idReglement = idReglement;
-		this.montantPaye = montantPaye;
-		this.montantRestant = montantRestant;
-		this.payee = payee;
-		this.dateReglement = dateReglement;
-	}
-	public Long getIdReglement() {
-		return idReglement;
-	}
-	public void setIdReglement(Long idReglement) {
-		this.idReglement = idReglement;
-	}
-	
 	
 }

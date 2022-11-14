@@ -58,6 +58,9 @@ public class Operateur implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public Operateur(Long idOperateur, String nom, String prenom, String password) {
 		super();
 		this.idOperateur = idOperateur;
@@ -67,8 +70,6 @@ public class Operateur implements Serializable{
 	}
 	public Operateur() {
 		super();
-
+		
 	}
-	
-	
 }
