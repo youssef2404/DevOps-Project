@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+
 public class Operateur implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -69,7 +69,8 @@ public class Operateur implements Serializable{
 		this.password = password;
 	}
 	public Operateur() {
-		super();
-		
-	}
+		this.nom = nom;
+		this.prenom = prenom;
+		this.password = password; 
+	
 }
