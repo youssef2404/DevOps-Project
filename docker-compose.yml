@@ -3,8 +3,11 @@ version: "3.7"
 services:
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: youssef2404/youssef
+    restart: on-failure
     container_name: achat
     depends_on:
       - dbSpring
@@ -37,14 +40,16 @@ services:
       - MYSQL_DATABASE=achatdb
     ports:
       - 3306:3306
- 
+    volumes:
+      - achatdb:/var/lib/mysql
+
 networks:
   spring-network:
     name: spring-network
 
 volumes:
   .m2:
-  tpstockdb:
+  achatdb:
 
 
 
