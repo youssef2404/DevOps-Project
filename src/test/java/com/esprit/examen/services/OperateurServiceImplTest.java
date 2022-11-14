@@ -41,7 +41,7 @@ public class OperateurServiceImplTest {
 	    }
 
 	    @Test
-	    public void  addOperateur(){
+	    public void  TestaddOperateur(){
 	    	Operateur OP1 = new Operateur();
 	    	OP1.setIdOperateur(1L);
 	    	OP1 .setNom("ons");;
@@ -52,12 +52,12 @@ public class OperateurServiceImplTest {
 	    }
 
 	    @Test
-	    public void deleteOperateur() {
+	    public void TestdeleteOperateur() {
 	    	OP.deleteOperateur(0L);;
 	    }
 
 	    @Test
-	    public void updateOperateur() {
+	    public void TestupdateOperateur() {
 	    	Operateur OP1 = OP.retrieveOperateur(0L);
 	    	OP1.setPassword("156fg");;
 	    	Operateur updatedOperateur1= OP.updateOperateur(OP1);
@@ -65,7 +65,7 @@ public class OperateurServiceImplTest {
 	    }
 
 	    @Test
-	    public void retrieveOperateur() {
+	    public void TretrieveOperateur() {
 	        OP.retrieveOperateur(0L);
 	    }
 
