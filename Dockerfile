@@ -1,6 +1,6 @@
-FROM maven:3.8.2-jdk-8
-WORKDIR /spring-app
-COPY . .
-RUN mvn clean install -Dmaven.test.skip=true
-CMD mvn  spring-boot:run
+FROM eclipse-temurin:11-jdk-alpine
+ARG IP
+ADD http://$IP:8081/repository/maven-nexus-repo/tn/esprit/rh/achat/1.0/achat-1.0.jar achat-1.0.jar
+EXPOSE 8089
+ENTRYPOINT ["java","-jar","/achat-1.0.jar"]
 
