@@ -78,8 +78,8 @@ pipeline{
 		always {
 			sh 'docker logout'
 		}
-        	}*/
-     	}
+        	}
+     	}*/
 	stage('Docker compose') {
             steps {
                 sh 'docker compose build'
