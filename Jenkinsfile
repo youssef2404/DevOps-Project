@@ -23,17 +23,15 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
 
  stage('MVN SONARQUBE'){
             steps{
-
-               script{
-         withSonarQubeEnv(credientialsId: 'sonar-api'){
-      sh 'mvn clean package sonar:sonar'
-
-}
-
-}
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.40:9000 -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-
+        stage('JUNIT-MOCKITO'){
+            steps{
+                echo'laching units test ...'
+                sh 'mvn test'
+            }
+        }
 }
 
 }
