@@ -24,14 +24,15 @@ services:
   dbSpring:
     image: mysql:5.7
     restart: unless-stopped
-    container_name: dbSpring
-    networks:
-      - spring-network
+    container_name: dbSpring  
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_DATABASE=achatdb
     ports:
       - 3306:3306
+      
+      
+      
    
 
 
