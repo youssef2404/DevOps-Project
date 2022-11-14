@@ -14,13 +14,7 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
                 sh 'mvn clean'
             }
         }
-         stage ('Maven Compile') {
-            steps {
-                
-           sh 'mvn compile'
-		        
-            }
-        }
+        
 
 
  stage('MVN SONARQUBE'){
@@ -28,12 +22,7 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=12345'
             }
         }
-        stage('JUNIT-MOCKITO'){
-            steps{
-                echo'laching units test ...'
-                sh 'mvn test'
-            }
-        }
+       
 }
 
 }
