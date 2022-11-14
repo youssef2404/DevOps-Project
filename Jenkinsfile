@@ -21,6 +21,11 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
                 sh 'mvn compile'
             }
         }
+stage ('Packaging'){
+			steps{
+				sh "mvn package -Dmaven.test.skip=true"
+			}
+		}
 
    stage('MVN SONARQUBE'){
             steps{
