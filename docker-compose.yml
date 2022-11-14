@@ -1,25 +1,10 @@
-version: "3.7"
+version: "3"
+services:
+    spring-boot-app: 
+        build:  .
+        image: spring-boot-app
+        ports:
+            - 8089:8089 
 
-services: 
-  springboot-app:
-   # container_name: spring-app
-    image: springbooot-app
-    restart: always
-    build: .
-    ports:
-      - 8089:8089
-    environment:
-      MYSQL_HOST: mysqldb
-      MYSQL_USER: youssef
-      MYSQL_PASSWORD: 
-      MYSQL_PORT: 3306
-  mysqldb: 
-    container_name: mysqldb
-    image: mysql
-    ports: 
-     - 3306:3306   
-    environment:
-      MYSQL_DATABASE: achatdb
-      MYSQL_ROOT_PASSWORD: 
 
 
