@@ -34,7 +34,7 @@ public class FactureServiceImpl implements IFactureService {
 	@Autowired
 	ProduitRepository produitRepository;
     @Autowired
-    OperateurServiceImplTest reglementService;
+    OperateurServiceImpl reglementService;
 	
 	@Override
 	public List<Facture> retrieveAllFactures() {
