@@ -4,15 +4,12 @@ services:
 
   app:
     build:
-      context: .
+      context: "./"
       dockerfile: Dockerfile
     image: youssef2404/youssef
-    restart: on-failure
     container_name: achat
     depends_on:
       - dbSpring
-    networks:
-      - spring-network
     ports:
       - 8089:8089
     environment:
@@ -23,11 +20,6 @@ services:
             "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
             "spring.jpa.hibernate.ddl-auto" : "update"
           }'
-    volumes:
-      - .m2:/root/maven-repo
-    stdin_open: true
-    tty: true
-
 
   dbSpring:
     image: mysql:5.7
@@ -40,16 +32,7 @@ services:
       - MYSQL_DATABASE=achatdb
     ports:
       - 3306:3306
-    volumes:
-      - achatdb:/var/lib/mysql
-
-networks:
-  spring-network:
-    name: spring-network
-
-volumes:
-  .m2:
-  achatdb:
+   
 
 
 
