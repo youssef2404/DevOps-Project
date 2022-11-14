@@ -16,13 +16,14 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
         }
         
 
-
- stage('MVN SONARQUBE'){
-            steps{
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=12345'
-            }
-        }
-       
+stage(‘Code Quality’) {
+steps {
+echo ‘Code Quality’
+withSonarQubeEnv(‘SonarQubeToken’) {
+bat “mvn sonar:sonar”
+}
+}
+}
 }
 
 }
