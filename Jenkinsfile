@@ -23,7 +23,10 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
 
  stage('MVN SONARQUBE'){
             steps{
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=12345'
+              mvn sonar:sonar \
+  -Dsonar.projectKey=tpAchatProject \
+  -Dsonar.host.url=http://192.168.1.40:9000 \
+  -Dsonar.login=b6d8bb0affbc375f55884947900433dabf884461
             }
         }
         stage('JUNIT-MOCKITO'){
