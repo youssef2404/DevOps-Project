@@ -45,7 +45,13 @@ stage ('Packaging'){
         }
 
 
-	
+	tage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t youssef2404/youssef .'
+                }
+            }
+        }
 
 
 }
