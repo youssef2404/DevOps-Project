@@ -14,8 +14,15 @@ url: 'https://github.com/youssef2404/DevOps-Project.git'
                 sh 'mvn clean'
             }
         }
-        
-
+     stage(‘SonarQube’) {
+steps {
+scripts{
+withSonarQubeEnv(crediantialsId:‘sonar-api’) {
+ sh'mvn clean package sonar:sonar'
+}
+}
+}   
+}
 
 }
 
