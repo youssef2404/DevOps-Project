@@ -3,11 +3,12 @@ version: "3.7"
 services:
 
   app:
-    working_dir: /spring-app
     build:
       context: "./"
       dockerfile: "Dockerfile"
     image: youssef2404/youssef
+    stdin_open: true 
+    tty: true 
     restart: on-failure
     container_name: achat
     depends_on:
@@ -26,9 +27,6 @@ services:
           }'
     volumes:
       - .m2:/root/maven-repo
-    stdin_open: true
-    tty: true
-
 
   dbSpring:
     image: mysql:5.7
