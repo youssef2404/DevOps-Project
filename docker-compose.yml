@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+
+  app:
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    image: youssef2404/youssef
+    stdin_open: true 
+    tty: true 
+    restart: on-failure
+    container_name: achat
+    depends_on:
+      - dbSpring
+    networks:
+      - spring-network
+    ports:
+      - 8089:8089
+    environment:
+      SPRING_APPLICATION_JSON: '{
+            "spring.datasource.url"  : "jdbc:mysql://dbSpring:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&createDatabaseIfNotExists=true",
+            "spring.datasource.username" : "youssef",
+            "spring.datasource.password" : "",
+            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+            "spring.jpa.hibernate.ddl-auto" : "update"
+          }'
+    volumes:
+      - .m2:/root/maven-repo
+
+  dbSpring:
+    image: mysql:5.7
+    restart: unless-stopped
+    container_name: dbSpring
+    networks:
+      - spring-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=achatdb
+    ports:
+      - 3306:3306
+    volumes:
+      - achatdb:/var/lib/mysql
+
+networks:
+  spring-network:
+    name: spring-network
+
+volumes:
+  .m2:
+  achatdb:
+      
+      
+   
+
+
+
